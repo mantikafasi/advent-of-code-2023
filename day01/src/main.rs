@@ -1,6 +1,6 @@
 use std::fs;
 
-pub fn day01() {
+fn main() {
     let contents = fs::read_to_string("input.txt").expect("Exploded for some reason.");
     const WORDS: [&str; 9] = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
     let mut sum: usize = 0;
