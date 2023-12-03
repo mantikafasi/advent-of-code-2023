@@ -4,6 +4,7 @@
         ".\\Cargo.toml",
         ".\\Cargo.toml",
         ".\\day01\\Cargo.toml",
-        ".\\day02\\Cargo.toml"
+        ".\\day02\\Cargo.toml",
+        ".\\day03\\Cargo.toml",
     ]
 }
