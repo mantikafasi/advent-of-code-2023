@@ -14,6 +14,7 @@ fn main() {
         let mut count:u32 = 0;
         groups.1.split_whitespace().for_each(|word| {
             if entries.contains(&word.parse::<i32>().unwrap()) {
+                
                 count += 1;
             }
         });
