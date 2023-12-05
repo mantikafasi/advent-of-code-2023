@@ -1,5 +1,5 @@
-use std::fs;
 use regex::Regex;
+use std::fs;
 
 struct Bag {
     green: i32,
@@ -15,9 +15,17 @@ pub fn main() {
 
     for i in 0..contents.lines().count() {
         let line = contents.lines().nth(i).unwrap();
-        let mut minimum = Bag { green: 0, red: 0, blue: 0 };
+        let mut minimum = Bag {
+            green: 0,
+            red: 0,
+            blue: 0,
+        };
         for round in line.split(";") {
-            let mut bag = Bag { green: 13, red: 12, blue: 14 };
+            let mut bag = Bag {
+                green: 13,
+                red: 12,
+                blue: 14,
+            };
 
             for f in groups.captures_iter(round) {
                 let number = f.get(1).unwrap().as_str().parse::<i32>().unwrap();
@@ -25,19 +33,18 @@ pub fn main() {
                     "green" => {
                         bag.green -= number;
                         minimum.green = minimum.green.max(number);
-                    },
+                    }
                     "red" => {
                         bag.red -= number;
                         minimum.red = minimum.red.max(number);
-                    },
+                    }
                     "blue" => {
                         bag.blue -= number;
                         minimum.blue = minimum.blue.max(number);
-                    },
-                    _ => {},
+                    }
+                    _ => {}
                 }
             }
-
 
             // part 1
             /*
@@ -49,8 +56,8 @@ pub fn main() {
         }
 
         print!("{} ", minimum.green * minimum.red * minimum.blue);
-        print!(":{} {} {}:", minimum.green , minimum.red, minimum.blue);
+        print!(":{} {} {}:", minimum.green, minimum.red, minimum.blue);
         part2 += minimum.red * minimum.green * minimum.blue;
-    };
-    print!("Day 02: {},{}", 100*101/2 - part1, part2)
+    }
+    print!("Day 02: {},{}", 100 * 101 / 2 - part1, part2)
 }
