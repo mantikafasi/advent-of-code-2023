@@ -2,15 +2,12 @@ fn find_next_value(numbers: Vec<i32>) -> i32 {
     let mut differences: Vec<i32> = Vec::new();
 
     for number in numbers.iter().zip(numbers.iter().skip(1)) {
-        let difference = number.1 - number.0;
-        differences.push(difference);
+        differences.push(number.1 - number.0);
     }
 
-    if differences.len() > 1 {
-        if !differences.iter().all(|&x| x == differences[0]) {
-            let diff = find_next_value(differences.clone());
-            return numbers.last().unwrap() + diff;
-        }
+    if differences.len() > 1 && !differences.iter().all(|&x| x == differences[0]) {
+        let diff = find_next_value(differences);
+        return numbers.last().unwrap() + diff;
     }
     return numbers.last().unwrap() + differences[0];
 }
