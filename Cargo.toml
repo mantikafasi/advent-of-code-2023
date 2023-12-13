@@ -8,6 +8,8 @@ edition = "2021"
 [dependencies]
 itertools = "0.12.0"
 lazy_static = "1.4.0"
+memoize = "0.4.1"
+pcre2 = "0.2.6"
 regex = "1.10.2"
 
 [workspace]
@@ -24,6 +26,8 @@ members = [
     "day09",
     "day10",
     "day11",
+    "day12",
+    "day13",
 ]
 
 [profile.release]
